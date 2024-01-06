@@ -90,7 +90,28 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+var length = parseInt(prompt("Please enter a password length between 8 and 128"), "");
+while (isNaN(length) || length<8 || length>128) {
+length = parseInt(prompt("Invalid input. Please enter a number between 8 and 128.", ""));
+}
+specialCharacters = confirm("Do you want to include special characters?");
+numericCharacters = confirm("Do you want to include numbers?"); 
+lowerCasedCharacters = confirm("Do you want to include lowercase characters?"); 
+upperCasedCharacters = confirm("Do you want to include Uppercase characters?"); 
 
+while(!specialCharacters && !numericCharacters && !lowerCasedCharacters && !upperCasedCharacters){
+prompt("Please select at least one character type.");
+specialCharacters = confirm("Do you want to include special characters?");
+numericCharacters = confirm("Do you want to include numbers?"); 
+lowerCasedCharacters = confirm("Do you want to include lowercase characters?"); 
+upperCasedCharacters = confirm("Do you want to include Uppercase characters?"); 
+}
+return {length: length, 
+        specialCharacters: specialCharacters, 
+        numericCharacters: numericCharacters, 
+        lowerCasedCharacters: lowerCasedCharacters, 
+        upperCasedCharacters: upperCasedCharacters
+      };
 }
 
 // Function for getting a random element from an array
@@ -100,7 +121,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+  console.log(getPasswordOptions());
 }
 
 // Get references to the #generate element
