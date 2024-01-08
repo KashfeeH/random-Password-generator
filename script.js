@@ -111,12 +111,38 @@ return [length, specialCharacters, numericCharacters, lowerCasedCharacters, uppe
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  var index = Math.floor(Math.random() *arr.length);
+  return arr[index];
+}
 
 // Function to generate password with user input
 function generatePassword() {
-  console.log (getPasswordOptions());
-  
+var options = getPasswordOptions();
+var length = options[0];
+var specialCharacters = options [1];
+var numericCharacters = options [2];
+var lowerCasedCharacters = options [3];
+var upperCasedCharacters = options [4];
+
+const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const numerals = '0123456789';
+const specialChars = '!@#$%^&*()+\\/{}[]`~-_.';
+
+var allChars = '';
+if(lowerCasedCharacters) allChars += lowerCase;
+if(upperCasedCharacters) allChars += upperCase;
+if(numericCharacters) allChars += numerals;
+if(specialCharacters) allChars += specialChars;
+
+var password = '';
+  for (var i = 0; i < length; i++) {
+      password += getRandom(allChars);
+  }
+
+  return password;
+
 }
 
 // Get references to the #generate element
