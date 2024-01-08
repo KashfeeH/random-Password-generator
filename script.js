@@ -106,22 +106,17 @@ numericCharacters = confirm("Do you want to include numbers?");
 lowerCasedCharacters = confirm("Do you want to include lowercase characters?"); 
 upperCasedCharacters = confirm("Do you want to include Uppercase characters?"); 
 }
-return {length: length, 
-        specialCharacters: specialCharacters, 
-        numericCharacters: numericCharacters, 
-        lowerCasedCharacters: lowerCasedCharacters, 
-        upperCasedCharacters: upperCasedCharacters
-      };
+return [length, specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters];
+
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-
-}
+function getRandom(arr) {}
 
 // Function to generate password with user input
 function generatePassword() {
-  console.log(getPasswordOptions());
+  console.log (getPasswordOptions());
+  
 }
 
 // Get references to the #generate element
